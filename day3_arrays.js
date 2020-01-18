@@ -1,3 +1,26 @@
+'use strict';
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.trim().split('\n').map(string => {
+        return string.trim();
+    });
+    
+    main();    
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
 
 /**
  * Retorne o segundo maior número da matriz.
@@ -5,16 +28,12 @@
  * @return {Number} O segundo maior número da matriz.
  **/
 function getSecondLargest(nums) {
-    let first = 0;
-    let second = 0;
+    //ordena o array em ordem crescente
+    nums.sort(); 
 
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] > first) {
-            first = nums[i];
-        } else if ((nums[i] > second) && (nums[i] != first)) {
-            second = nums[i];
-        }
-    }
+    //cria um novo array com os elementos de nums sem números repetidos
+    var newArray = [...new Set(nums)];
 
-    console.log(second);
+    //retorna o 2 maior número
+    console.log(newArray[newArray.length-2]);
 }
