@@ -28,12 +28,12 @@ function readLine() {
  * @return {Number} O segundo maior número da matriz.
  **/
 function getSecondLargest(nums) {
-    //ordena o array em ordem crescente
-    nums.sort(); 
-
     //cria um novo array com os elementos de nums sem números repetidos
-    var newArray = [...new Set(nums)];
+    const newArray = Array.from(new Set(nums));
 
+    //ordena o array em ordem decrescente
+    const reverseSorted = newArray.sort(function(a, b){return b - a})
+    
     //retorna o 2 maior número
-    console.log(newArray[newArray.length-2]);
+    return (reverseSorted[1]);
 }
