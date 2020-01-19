@@ -29,27 +29,9 @@ function readLine() {
  * objects: an array of objects with integer properties 'x' and 'y'
  */
 function getCount(objects) {
-    let count = 0;
-
-    for (o in objects) {
-        if (objects.x === objects.y) {
-            count++;
-        }
+    let res = 0;
+    for(let o of objects) {
+        res += (o.x === o.y);
     }
-
-    return count;
-
-}
-
-function main() {
-    const n = +(readLine());
-    let objects = [];
-    
-    for (let i = 0; i < n; i++) {
-        const [a, b] = readLine().split(' ');
-        
-        objects.push({x: +(a), y: +(b)});
-    }
-    
-    console.log(getCount(objects));
+    return res;
 }
