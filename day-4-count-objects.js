@@ -29,16 +29,11 @@ function readLine() {
  * objects: an array of objects with integer properties 'x' and 'y'
  */
 function getCount(objects) {
-    let count = 0;
-
-    for (o in objects) {
-        if (objects.x === objects.y) {
-            count++;
-        }
+    let res = 0;
+    for(let o of objects) {
+        res += (o.x === o.y);
     }
-
-    return count;
-
+    return res;
 }
 
 function main() {
