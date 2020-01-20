@@ -24,24 +24,9 @@ function readLine() {
 
 // The days of the week are: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 function getDayName(dateString) {
-    
-    let dayName = new Date(dateString[0]);
+    let dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-    if (dayName.toString().includes('Sun')) {
-        return "Sunday";
-    } else if (dayName.toString().includes('Mon')) {
-        return "Monday";
-    } else if (dayName.toString().includes('Tue')) {
-        return "Tuesday";
-    } else if (dayName.toString().includes('Wed')) {
-        return "Wednesday";
-    } else if (dayName.toString().includes('Thu')) {
-        return "Thursday";
-    } else if (dayName.toString().includes('Fri')) {
-        return "Friday";
-    } else {
-        return "Saturday";       
-    }
+    return dayName[new Date (dateString).getDay()];
 }
 
 
